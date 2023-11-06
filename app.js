@@ -11,9 +11,9 @@ connect();
 app.use(express.json());
 
 app.post('/', (req, res) => {
-  console.log(req.body);
+	console.log(req.body);
 
-  res.send('기본 URI에 Post 메소드가 정상적으로 실행되었습니다.');
+	res.send('기본 URI에 Post 메소드가 정상적으로 실행되었습니다.');
 });
 
 // app.get('/', (req, res) => {
@@ -28,14 +28,14 @@ app.post('/', (req, res) => {
 // });
 
 app.get('/', (req, res) => {
-  console.log(req.query);
+	console.log(req.query);
 
-  res.send('정상적으로 반환되었습니다.');
+	res.send('정상적으로 반환되었습니다.');
 });
 
 app.get('/:id', (req, res) => {
-  console.log(req.params);
-  res.send(':id URI에 정상적으로 반환되었습니다.');
+	console.log(req.params);
+	res.send(':id URI에 정상적으로 반환되었습니다.');
 });
 // app.get('/', (req, res) => {
 //   res.send('Hello World!');
@@ -44,7 +44,7 @@ app.get('/:id', (req, res) => {
 //localhost:3000/api -> goodsRouter
 
 app.listen(port, () => {
-  console.log(port, '포트로 서버가 열렸어요!');
+	console.log(port, '포트로 서버가 열렸어요!');
 });
 
 app.use('/api', [productRouter]);
