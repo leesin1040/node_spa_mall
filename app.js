@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const goodsRouter = require('./routes/goods.js');
-const cartsRouter = require('./routes/cart.js');
+const productRouter = require('./routes/products.router.js');
+
+// const goodsRouter = require('./routes/goods.js');
+// const cartsRouter = require('./routes/cart.js');
 const connect = require('./schemas');
 connect();
 
@@ -14,16 +16,16 @@ app.post('/', (req, res) => {
   res.send('기본 URI에 Post 메소드가 정상적으로 실행되었습니다.');
 });
 
-app.get('/', (req, res) => {
-  console.log(req.body);
+// app.get('/', (req, res) => {
+//   console.log(req.body);
 
-  const obj = {
-    KeyKey: 'value 입니다.',
-    '이름입니다.': '이름일까요?',
-  };
+//   const obj = {
+//     KeyKey: 'value 입니다.',
+//     '이름입니다.': '이름일까요?',
+//   };
 
-  res.json(obj);
-});
+//   res.json(obj);
+// });
 
 app.get('/', (req, res) => {
   console.log(req.query);
@@ -40,8 +42,9 @@ app.get('/:id', (req, res) => {
 // });
 
 //localhost:3000/api -> goodsRouter
-app.use('/api', [goodsRouter, cartsRouter]);
 
 app.listen(port, () => {
   console.log(port, '포트로 서버가 열렸어요!');
 });
+
+app.use('/api', [productRouter]);

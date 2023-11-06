@@ -40,6 +40,7 @@ router.get('/goods', (req, res) => {
   res.status(200).json({ goods });
 });
 
+//상세페이지 보기
 router.get('/goods/:goodsId', (req, res) => {
   const { goodsId } = req.params;
 
@@ -49,7 +50,6 @@ router.get('/goods/:goodsId', (req, res) => {
   //     result = good;
   //   }
   // }
-
   const [detail] = goods.filter((good) => Number(goodsId) === good.goodsId);
 
   res.status(200).json({ detail });
